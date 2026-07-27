@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { useCartStore, selectCartCount } from "@/stores/cartStore";
 import { useCartUI } from "@/stores/cartUI";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -25,7 +26,9 @@ export default function Header() {
   const openCart = useCartUI((s) => s.open);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header>
+      <AnnouncementBar />
+      <div className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between md:h-20">
         {/* Mobile menu */}
         <div className="flex items-center md:hidden">
@@ -93,6 +96,7 @@ export default function Header() {
             </span>
           )}
         </button>
+      </div>
       </div>
     </header>
   );

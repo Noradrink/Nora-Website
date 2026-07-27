@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const ingredients = [
   {
     num: "01",
@@ -32,7 +34,7 @@ export default function WhyNora() {
       <div className="pointer-events-none absolute -right-24 bottom-16 h-80 w-80 rounded-full bg-rose/40 blur-3xl" />
 
       <div className="container relative">
-        <div className="mx-auto mb-14 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-14 max-w-2xl text-center">
           <p className="mb-3 text-xs uppercase tracking-luxe text-peach-deep">
             What's Inside
           </p>
@@ -43,13 +45,14 @@ export default function WhyNora() {
             Each can is formulated with clinically backed actives, no fillers, no
             compromises.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {ingredients.map((item) => (
-            <div
+          {ingredients.map((item, i) => (
+            <Reveal
               key={item.num}
-              className="rounded-2xl border border-border/60 bg-background/70 p-8 backdrop-blur-sm"
+              delay={i * 100}
+              className="group rounded-2xl border border-border/60 bg-background/70 p-8 backdrop-blur-sm transition-colors hover:border-primary/60"
             >
               <span className="font-serif text-2xl text-peach-deep/70">
                 {item.num}
@@ -60,7 +63,7 @@ export default function WhyNora() {
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.benefit}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

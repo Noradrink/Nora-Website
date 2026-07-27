@@ -94,7 +94,7 @@ export default function ProductPage() {
 
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Images */}
-          <div>
+          <div className="lg:sticky lg:top-28 lg:self-start">
             <div className="overflow-hidden rounded-2xl bg-gradient-to-b from-ivory to-rose-muted">
               <img
                 src={images[activeImage] ?? images[0]}

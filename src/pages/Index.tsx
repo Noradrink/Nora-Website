@@ -4,7 +4,9 @@ import CartDrawer from "@/components/CartDrawer";
 import Hero from "@/components/home/Hero";
 import BenefitStrip from "@/components/home/BenefitStrip";
 import FlavourSection from "@/components/home/FlavourSection";
+import RitualSteps from "@/components/home/RitualSteps";
 import WhyNora from "@/components/home/WhyNora";
+import QuoteSection from "@/components/home/QuoteSection";
 import FinalCTA from "@/components/home/FinalCTA";
 
 export default function Index() {
@@ -16,7 +18,9 @@ export default function Index() {
         <Hero />
         <BenefitStrip />
         <FlavourSection />
+        <RitualSteps />
         <WhyNora />
+        <QuoteSection />
         <FinalCTA />
       </main>
       <Footer />
