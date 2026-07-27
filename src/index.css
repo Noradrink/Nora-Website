@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core semantic tokens */
+    --background: 35 45% 97%; /* ivory / cream */
+    --foreground: 20 15% 15%;
+
+    --card: 40 50% 98%;
+    --card-foreground: 20 15% 15%;
+
+    --popover: 40 50% 98%;
+    --popover-foreground: 20 15% 15%;
+
+    --primary: 21 100% 82%; /* peach #FFC2A1 — brand */
+    --primary-foreground: 20 20% 15%;
+
+    --secondary: 30 40% 94%;
+    --secondary-foreground: 20 15% 15%;
+
+    --muted: 30 20% 92%;
+    --muted-foreground: 25 10% 40%;
+
+    --accent: 21 100% 82%;
+    --accent-foreground: 20 20% 15%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 40 50% 98%;
+
+    --border: 25 20% 88%;
+    --input: 25 20% 88%;
+    --ring: 21 100% 82%;
+
+    --radius: 0.5rem;
+
+    /* Brand palette */
+    --cream: 35 45% 95%;
+    --ivory: 40 50% 97%;
+    --peach: 21 100% 82%; /* #FFC2A1 */
+    --peach-soft: 25 100% 92%;
+    --peach-deep: 18 75% 68%;
+    --rose: 8 65% 88%;
+    --rose-muted: 12 40% 92%;
+    --rose-deep: 5 55% 70%;
+    --blush: 15 60% 90%;
+    --champagne: 38 55% 88%;
+    --nude: 28 35% 85%;
+    --sage: 30 25% 82%; /* warm sage tinted toward peach */
+    --sage-dark: 25 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tracking-luxe {
+    letter-spacing: 0.3em;
+  }
+}
