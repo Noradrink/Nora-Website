@@ -60,7 +60,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <img
           src={product.image}
           alt={product.editorial.flavor}
-          className="aspect-[4/5] w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+          className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </Link>
 

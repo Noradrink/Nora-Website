@@ -1,6 +1,6 @@
-import strawberryImg from "@/assets/strawberry-pearl.png";
-import lemonImg from "@/assets/lemon-elderflower.png";
-import blendImg from "@/assets/nora-cans-blend.png";
+import strawberryImg from "@/assets/photo-strawberry.jpg";
+import lemonImg from "@/assets/photo-lemon.jpg";
+import blendImg from "@/assets/photo-variety.jpg";
 
 export type PackSize = 6 | 12;
 

@@ -99,7 +99,7 @@ export default function ProductPage() {
               <img
                 src={images[activeImage] ?? images[0]}
                 alt={editorial.flavor}
-                className="aspect-square w-full object-contain p-10"
+                className="aspect-square w-full object-cover"
               />
             </div>
             {images.length > 1 && (
@@ -118,7 +118,7 @@ export default function ProductPage() {
                     <img
                       src={img}
                       alt=""
-                      className="h-full w-full object-contain p-1"
+                      className="h-full w-full object-cover"
                     />
                   </button>
                 ))}

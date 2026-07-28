@@ -23,7 +23,7 @@ export default function Shop() {
         </div>
 
         {isLoading && (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="animate-pulse">
                 <div className="aspect-[4/5] rounded-2xl bg-muted" />
@@ -49,7 +49,7 @@ export default function Shop() {
         )}
 
         {!isLoading && !error && hasProducts && (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <ProductCard key={product.handle} product={product} />
             ))}

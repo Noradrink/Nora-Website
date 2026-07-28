@@ -155,27 +155,66 @@ async function renderBackdrop(out, { c1, c2, c3, bokeh }) {
   console.log("wrote", path.basename(out));
 }
 
-/* Wide hero backdrop (soft, no cans/text — cans overlaid in React). */
+/* Filled 4:5 product image: gradient + bokeh + centered can(s).
+   Designed to sit under object-cover, so it fills the card frame the same
+   way a real product photo would. */
+function bokehDots(bokeh) {
+  return Array.from({ length: 9 }, (_, i) => {
+    const x = 80 + ((i * 197) % 760);
+    const y = 90 + ((i * 331) % 1180);
+    const r = 20 + ((i * 41) % 70);
+    const op = 0.1 + ((i % 3) * 0.06);
+    return `<circle cx="${x}" cy="${y}" r="${r}" fill="${bokeh}" opacity="${op}"/>`;
+  }).join("");
+}
+
+async function renderCard(out, { c1, c2, c3, cans }) {
+  const canLayer = cans
+    .map((c) => `<g transform="${c.t}">${canGroup(c.cfg)}</g>`)
+    .join("");
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125">
+    <defs>
+      <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${c1}"/>
+        <stop offset="55%" stop-color="${c2}"/>
+        <stop offset="100%" stop-color="${c3}"/>
+      </linearGradient>
+      <radialGradient id="cgl" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="cb"><feGaussianBlur stdDeviation="16"/></filter>
+    </defs>
+    <rect width="900" height="1125" fill="url(#cbg)"/>
+    <g filter="url(#cb)">${bokehDots("#ffffff")}</g>
+    <rect width="900" height="1125" fill="url(#cgl)"/>
+    ${canLayer}
+  </svg>`;
+  await sharp(Buffer.from(svg)).jpeg({ quality: 88 }).toFile(out);
+  console.log("wrote", path.basename(out));
+}
+
+/* Wide hero banner: soft editorial gradient with both cans, filling the
+   frame under object-cover. Real hero photo can replace this file. */
 async function renderHeroBg(out) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1100" viewBox="0 0 2200 1100">
     <defs>
       <linearGradient id="h" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#FCF3EA"/>
-        <stop offset="45%" stop-color="#F8E3D2"/>
-        <stop offset="100%" stop-color="#F3D4CC"/>
+        <stop offset="0%" stop-color="#F6D3DA"/>
+        <stop offset="50%" stop-color="#FBE2CE"/>
+        <stop offset="100%" stop-color="#EFDDA0"/>
       </linearGradient>
-      <radialGradient id="hg1" cx="26%" cy="34%" r="42%">
-        <stop offset="0%" stop-color="#FFD9C2" stop-opacity="0.8"/>
-        <stop offset="100%" stop-color="#FFD9C2" stop-opacity="0"/>
+      <radialGradient id="hg1" cx="30%" cy="45%" r="40%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
       </radialGradient>
-      <radialGradient id="hg2" cx="78%" cy="60%" r="46%">
-        <stop offset="0%" stop-color="#F6C9CF" stop-opacity="0.7"/>
-        <stop offset="100%" stop-color="#F6C9CF" stop-opacity="0"/>
-      </radialGradient>
+      <filter id="hb"><feGaussianBlur stdDeviation="20"/></filter>
     </defs>
-    <rect width="2000" height="1200" fill="url(#h)"/>
-    <rect width="2000" height="1200" fill="url(#hg1)"/>
-    <rect width="2000" height="1200" fill="url(#hg2)"/>
+    <rect width="2200" height="1100" fill="url(#h)"/>
+    <g filter="url(#hb)">${bokehDots("#ffffff")}</g>
+    <rect width="2200" height="1100" fill="url(#hg1)"/>
+    <g transform="translate(770,60) scale(1.02)">${canGroup(strawberry)}</g>
+    <g transform="translate(1080,120) scale(0.9)">${canGroup(lemon)}</g>
   </svg>`;
   await sharp(Buffer.from(svg)).jpeg({ quality: 90 }).toFile(out);
   console.log("wrote", path.basename(out));
@@ -205,6 +244,29 @@ await renderCan(strawberry, path.join(assetsDir, "strawberry-pearl.png"));
 await renderCan(lemon, path.join(assetsDir, "lemon-elderflower.png"));
 await renderBlend(path.join(assetsDir, "nora-cans-blend.png"));
 await renderHeroBg(path.join(assetsDir, "hero-duo.png"));
+
+// Filled 4:5 product-card images (fallbacks that fill the frame).
+await renderCard(path.join(assetsDir, "card-strawberry.jpg"), {
+  c1: "#F6D3DA",
+  c2: "#EBAEBC",
+  c3: "#DE93A3",
+  cans: [{ cfg: strawberry, t: "translate(220,55) scale(0.98)" }],
+});
+await renderCard(path.join(assetsDir, "card-lemon.jpg"), {
+  c1: "#F8EEC6",
+  c2: "#EFDDA0",
+  c3: "#E6CE84",
+  cans: [{ cfg: lemon, t: "translate(220,55) scale(0.98)" }],
+});
+await renderCard(path.join(assetsDir, "card-variety.jpg"), {
+  c1: "#F3D8D3",
+  c2: "#F0CBB4",
+  c3: "#EAD79E",
+  cans: [
+    { cfg: strawberry, t: "translate(70,150) scale(0.82)" },
+    { cfg: lemon, t: "translate(400,190) scale(0.72)" },
+  ],
+});
 await renderBackdrop(path.join(assetsDir, "lifestyle-strawberry.jpg"), {
   c1: "#F6D3DA",
   c2: "#EBAEBC",
