@@ -5,9 +5,11 @@ import Hero from "@/components/home/Hero";
 import BenefitStrip from "@/components/home/BenefitStrip";
 import FlavourSection from "@/components/home/FlavourSection";
 import EditorialSplit from "@/components/home/EditorialSplit";
-import RitualSteps from "@/components/home/RitualSteps";
 import WhyNora from "@/components/home/WhyNora";
+import Comparison from "@/components/home/Comparison";
+import RitualSteps from "@/components/home/RitualSteps";
 import QuoteSection from "@/components/home/QuoteSection";
+import NewsletterBand from "@/components/home/NewsletterBand";
 import FinalCTA from "@/components/home/FinalCTA";
 import vanity from "@/assets/lifestyle-vanity.jpg";
 import pilates from "@/assets/lifestyle-pilates.jpg";
@@ -36,7 +38,6 @@ export default function Index() {
           ctaTo="/shop"
         />
 
-        <RitualSteps />
         <WhyNora />
 
         <EditorialSplit
@@ -49,7 +50,10 @@ export default function Index() {
           ctaTo="/shop"
         />
 
+        <Comparison />
+        <RitualSteps />
         <QuoteSection />
+        <NewsletterBand />
         <FinalCTA />
       </main>
       <Footer />
