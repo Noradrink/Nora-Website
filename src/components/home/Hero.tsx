@@ -19,8 +19,8 @@ export default function Hero() {
           <p className="mb-4 text-xs uppercase tracking-luxe text-peach-deep md:text-sm">
             Skin-First Sparkling Hydration
           </p>
-          <h1 className="font-serif text-6xl leading-[0.98] text-foreground drop-shadow-sm md:text-7xl lg:text-8xl">
-            Drink to <span className="italic text-primary">Glow</span>
+          <h1 className="font-serif text-6xl leading-[0.95] tracking-tight text-foreground drop-shadow-sm md:text-7xl lg:text-8xl">
+            Drink to <span className="text-peach-deep">Glow</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-foreground/80 md:mx-0 md:text-lg">
             A sparkling collagen beverage designed to support skin hydration and

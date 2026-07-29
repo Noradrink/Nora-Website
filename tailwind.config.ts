@@ -17,7 +17,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Cormorant Garamond", "Georgia", "serif"],
+        // "serif" token kept so existing font-serif usages pick up the new
+        // display face without touching every component.
+        serif: ["Bricolage Grotesque", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {

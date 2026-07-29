@@ -21,7 +21,7 @@
     --secondary-foreground: 20 15% 15%;
 
     --muted: 30 20% 92%;
-    --muted-foreground: 25 10% 40%;
+    --muted-foreground: 25 14% 34%;
 
     --accent: 21 100% 82%;
     --accent-foreground: 20 20% 15%;
@@ -70,7 +70,8 @@
   h2,
   h3,
   h4 {
-    @apply font-serif;
+    @apply font-serif font-bold;
+    letter-spacing: -0.02em;
   }
 }
 
