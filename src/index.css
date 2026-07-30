@@ -4,51 +4,51 @@
 
 @layer base {
   :root {
-    /* Core semantic tokens — "Modern Glow" palette */
-    --background: 28 52% 98%; /* warm luminous cream */
+    /* Core semantic tokens — "Modern Glow" palette, pink family */
+    --background: 340 44% 98%; /* luminous pink-cream */
     --foreground: 345 26% 18%; /* deep plum, richer than black */
 
-    --card: 30 55% 99%;
+    --card: 342 50% 99%;
     --card-foreground: 345 26% 18%;
 
-    --popover: 30 55% 99%;
+    --popover: 342 50% 99%;
     --popover-foreground: 345 26% 18%;
 
-    --primary: 12 92% 63%; /* vibrant glowing coral */
-    --primary-foreground: 24 60% 99%;
+    --primary: 340 78% 62%; /* vibrant glow pink */
+    --primary-foreground: 340 60% 99%;
 
-    --secondary: 18 58% 95%; /* warm blush */
+    --secondary: 342 48% 95%; /* soft pink */
     --secondary-foreground: 345 26% 18%;
 
-    --muted: 20 32% 93%;
+    --muted: 340 24% 93%;
     --muted-foreground: 345 13% 38%;
 
-    --accent: 12 92% 63%;
-    --accent-foreground: 24 60% 99%;
+    --accent: 340 78% 62%;
+    --accent-foreground: 340 60% 99%;
 
     --destructive: 0 72% 55%;
-    --destructive-foreground: 30 55% 99%;
+    --destructive-foreground: 340 50% 99%;
 
-    --border: 20 34% 89%;
-    --input: 20 34% 89%;
-    --ring: 12 92% 63%;
+    --border: 340 30% 90%;
+    --input: 340 30% 90%;
+    --ring: 340 78% 62%;
 
     --radius: 0.75rem;
 
-    /* Brand palette */
-    --cream: 28 50% 96%;
-    --ivory: 32 55% 98%;
-    --peach: 16 100% 77%; /* glowing peach */
-    --peach-soft: 20 100% 91%;
-    --peach-deep: 6 82% 53%; /* deep coral, accents / links */
-    --rose: 350 82% 89%;
-    --rose-muted: 350 48% 93%;
-    --rose-deep: 348 70% 66%;
-    --blush: 12 88% 89%;
-    --champagne: 30 62% 91%;
-    --nude: 24 46% 88%;
-    --sage: 20 30% 84%;
-    --sage-dark: 20 22% 66%;
+    /* Brand palette — shades of pink */
+    --cream: 340 44% 96%;
+    --ivory: 342 50% 98%;
+    --peach: 344 90% 83%; /* soft glow pink */
+    --peach-soft: 346 100% 93%; /* palest pink */
+    --peach-deep: 338 64% 49%; /* deep rose, accents / links */
+    --rose: 348 84% 89%;
+    --rose-muted: 346 52% 94%;
+    --rose-deep: 342 72% 64%;
+    --blush: 344 88% 90%;
+    --champagne: 345 58% 92%;
+    --nude: 340 42% 90%;
+    --sage: 340 26% 86%;
+    --sage-dark: 340 20% 66%;
   }
 }
 
